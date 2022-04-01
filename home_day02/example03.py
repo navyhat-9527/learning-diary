@@ -1,0 +1,28 @@
+"""
+    example03 -ABCDE无人去捕鱼,补了不计其数的鱼,然后累了睡去
+    第二天,A第一个醒来,把鱼分为五份,扔掉多余的一条鱼,然后拿走了自己的一份;
+    B第二个醒来,以为鱼没有分过,又把鱼分为五份,扔掉多余的一条鱼,然后拿走了自己的一份;
+    CDE依次醒来按照相同的方式分鱼,问他们最少补了多少条鱼.
+    1+ 5x = y
+    1+ 5y = z
+    1+ 5z = m
+    1+ 5m = n
+    1+ 5n = h
+    1 + 5*(1+5*(1+5(1+5(1+5x))))
+ Author : Iven
+ Date : 2021/12/28
+"""
+fish = 1
+while True:
+    is_enough = True
+    total = fish
+    for i in range(1,6):
+        if (total - 1)%5 ==0:
+            total = (total-1)// 5 *4
+        else:
+            is_enough = False
+            break
+    if is_enough:
+        print(fish)
+        break
+    fish += 1
